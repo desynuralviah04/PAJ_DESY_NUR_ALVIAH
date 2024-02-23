@@ -8,8 +8,8 @@ use Illuminate\Http\Request;
 class TaskController extends Controller
 {
     public function index(){
-
-        return view('task.index');
+        $task = Task::all();
+        return view('task.index',compact('task'));
     }
 
     public function create(){
@@ -28,6 +28,22 @@ class TaskController extends Controller
         $task->description = $description; // Assign description
         $task->save();
     
+        return redirect('/task');
+    }
+    public function show (Task $task)
+    {
+        return view('task.show',compact('task'));
+    }
+    public function edit($id)
+    {
+        $task = Task::findOrFail($id);
+        return view('task.edit', compact('task'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $tasks = Task::findOrFail($id);
+        $tasks->update($request->all());
         return redirect('/task');
     }
 }

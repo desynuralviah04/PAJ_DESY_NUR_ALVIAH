@@ -6,6 +6,10 @@ use App\Http\Controllers\TaskController;
 Route::get('/task', [TaskController::Class,'index']);
 Route::get('/task/create', [TaskController::Class,'create']);
 Route::post('/task/store', [TaskController::Class,'store']);
+Route::get('/task/{task}',[TaskController::Class,'show']);
+Route::get('task/{id}/edit',[TaskController::Class,'edit']) ;
+Route::put('task/{task}', [TaskController::Class,'update']);
+
 
 Route::get('/', function () {
     return view('welcome');
