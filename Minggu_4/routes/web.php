@@ -9,6 +9,9 @@ Route::post('/task/store', [TaskController::Class,'store']);
 Route::get('/task/{task}',[TaskController::Class,'show']);
 Route::get('task/{id}/edit',[TaskController::Class,'edit']) ;
 Route::put('task/{task}', [TaskController::Class,'update']);
+Route::delete('task/{task}', [TaskController::Class,'delete']);
+
+
 
 
 Route::get('/', function () {

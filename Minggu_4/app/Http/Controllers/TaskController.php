@@ -46,4 +46,9 @@ class TaskController extends Controller
         $tasks->update($request->all());
         return redirect('/task');
     }
+    public function delete(Task $task)
+    {
+        $task->delete();
+        return redirect('/task');
+    }
 }
